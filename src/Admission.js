@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 const AdmissionForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -21,10 +22,10 @@ const AdmissionForm = () => {
     }
 
     // Calculate monthly fee
-    const monthlyFee = 500;
+   // const monthlyFee = 500;
 
     // Call CompletePayment() function to process payment
-    const paymentResponse = CompletePayment(email, monthlyFee);
+  /*  const paymentResponse = CompletePayment(email, monthlyFee);
 
     if (paymentResponse.success) {
       // Save user information to database
@@ -35,10 +36,11 @@ const AdmissionForm = () => {
     } else {
       // Show error message
       alert('There was a problem processing your payment. Please try again.');
-    }
+    }*/
   };
 
   return (
+    
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name:</label>
       <input
@@ -64,7 +66,7 @@ const AdmissionForm = () => {
         onChange={(event) => setAge(event.target.value)}
         />
        <label>Batch</label>
-          <select name="batch" value={batch} onChange={this.handleChange}>
+          <select name="batch" value={batch} onChange={(event)=>setBatch(event.target.value)}>
             <option value="">Select</option>
             <option value="6-7AM">6-7AM</option>
             <option value="7-8AM">7-8AM</option>
@@ -72,6 +74,8 @@ const AdmissionForm = () => {
             <option value="5-6PM">5-6PM</option>
           </select>
           <button type="submit">Submit</button>
+          <a href='./'>Home</a>
         </form>
   )
 }
+export default AdmissionForm;

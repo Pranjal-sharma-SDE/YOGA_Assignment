@@ -1,8 +1,10 @@
 import React from 'react';
 import './App.css';
+import AdmissionForm from './Admission';
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 
 class App extends React.Component {
-  constructor(props) {
+  /*constructor(props) {
     super(props);
     this.state = {
       name: '',
@@ -36,13 +38,17 @@ class App extends React.Component {
         success: 'Successfully registered'
       })
     }
-  }
+  }*/
 
   render() {
-    const { name, age, batch, error, success } = this.state;
+   // const { name, age, batch, error, success } = this.state;
     return (
       <div className="App">
         <h1>Yoga Classes</h1>
+        <h2><center><a href="./user"> Admission</a></center></h2>
+        This is app class
+     {/*}
+        
         <form onSubmit={this.handleSubmit}>
           <label>Name</label>
           <input type="text" name="name" value={name} onChange={this.handleChange} />
@@ -60,6 +66,17 @@ class App extends React.Component {
         </form>
         {error && <p className="error">{error}</p>}
         {success && <p className="success">{success}</p>}
+        <AdmissionForm></AdmissionForm>
+    */}
+    <Router>
+        <Routes>
+      
+      <Route path="user" element={<AdmissionForm/>}/>
+      
+
+      </Routes>
+    
+  </Router>
       </div>
     );
   }
