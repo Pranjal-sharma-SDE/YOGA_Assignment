@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { saveUser, completePayment } from './actions';
+//import CompletePayment from './CompletePayment';
 
 
-const AdmissionForm = () => {
+const AdmissionForm = (props) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [age, setAge] = useState('');
@@ -22,21 +25,22 @@ const AdmissionForm = () => {
     }
 
     // Calculate monthly fee
-   // const monthlyFee = 500;
+   const monthlyFee = 500;
+   // paymentResponse = CompletePayment(email, monthlyFee,age);
 
     // Call CompletePayment() function to process payment
-  /*  const paymentResponse = CompletePayment(email, monthlyFee);
+  const paymentResponse = true;
 
     if (paymentResponse.success) {
       // Save user information to database
-      saveUser(name, email, age, batch);
+      props.saveUser(name, email, age, batch);
 
       // Show success message
       alert('Thank you for enrolling in Yoga Classes! Your payment has been processed successfully.');
     } else {
       // Show error message
       alert('There was a problem processing your payment. Please try again.');
-    }*/
+    }
   };
 
   return (
@@ -75,7 +79,18 @@ const AdmissionForm = () => {
           </select>
           <button type="submit">Submit</button>
           <a href='./'>Home</a>
+     
         </form>
   )
 }
-export default AdmissionForm;
+const mapStateToProps = (state) => ({
+  user: state.user,
+  payment: state.payment
+  });
+  
+  const mapDispatchToProps = (dispatch) => ({
+  saveUser: (name, email, age, batch) => dispatch(saveUser(name, email, age, batch)),
+  completePayment: (email, monthlyFee, age) => dispatch(completePayment(email, monthlyFee, age))
+  });
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(AdmissionForm);

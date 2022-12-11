@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import AdmissionForm from './Admission';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+import "./Firebase/Configure";
 
 class App extends React.Component {
   /*constructor(props) {
@@ -77,6 +78,7 @@ class App extends React.Component {
       </Routes>
     
   </Router>
+
       </div>
     );
   }
