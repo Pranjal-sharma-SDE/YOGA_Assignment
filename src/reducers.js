@@ -34,9 +34,9 @@ return state;
 }
 }
 
-const reducers = combineReducers({
-user: userReducer,
-payment: paymentReducer
-});
 
+const reducers = combineReducers({
+    user: userReducer,
+    payment: paymentReducer,
+  });
 export default reducers;

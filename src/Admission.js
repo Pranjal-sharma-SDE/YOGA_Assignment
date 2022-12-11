@@ -31,7 +31,7 @@ const AdmissionForm = (props) => {
     // Call CompletePayment() function to process payment
   const paymentResponse = true;
 
-    if (paymentResponse.success) {
+    if (paymentResponse) {
       // Save user information to database
       props.saveUser(name, email, age, batch);
 
