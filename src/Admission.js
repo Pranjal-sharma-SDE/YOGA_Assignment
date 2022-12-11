@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { saveUser, completePayment } from './actions';
+import Profile from './Profile';
 //import CompletePayment from './CompletePayment';
 
 
@@ -36,7 +37,7 @@ const AdmissionForm = (props) => {
       props.saveUser(name, email, age, batch);
 
       // Show success message
-      alert('Thank you for enrolling in Yoga Classes! Your payment has been processed successfully.');
+      alert('Thank you {props.name} for enrolling in Yoga Classes! Your payment has been processed successfully.');
     } else {
       // Show error message
       alert('There was a problem processing your payment. Please try again.');
@@ -79,7 +80,7 @@ const AdmissionForm = (props) => {
           </select>
           <button type="submit">Submit</button>
           <a href='./'>Home</a>
-     
+     <Profile/>
         </form>
   )
 }

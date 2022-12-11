@@ -35,8 +35,8 @@ return state;
 }
 
 
-const reducers = combineReducers({
+const rootReducer = combineReducers({
     user: userReducer,
     payment: paymentReducer,
   });
-export default reducers;
+export default rootReducer;

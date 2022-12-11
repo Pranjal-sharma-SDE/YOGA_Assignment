@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import AdmissionForm from './Admission';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
-import "./Firebase/Configure";
+import Profile from './Profile';
+
 
 class App extends React.Component {
   /*constructor(props) {
@@ -73,6 +74,7 @@ class App extends React.Component {
         <Routes>
       
       <Route path="user" element={<AdmissionForm/>}/>
+      <Route path="profile" element={<Profile/>}/>
       
 
       </Routes>
