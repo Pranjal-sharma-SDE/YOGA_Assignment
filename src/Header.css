@@ -3,13 +3,27 @@ header {
     padding: 20px;
     text-align: center;
   }
+  footer {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+  }
   
  h1 {
-    color: white;
+    color: rgba(248, 199, 65, 0.95);
     font-size: 32px;
     margin: 0;
   }
-  
+  h2 {
+    color: rgba(248, 199, 65, 0.95);
+    font-size: 12px;
+    margin: 0;
+  }
+  p{
+    color: rgba(126, 55, 3, 0.95);
+    font-size: 32px;
+    margin: 10;
+  }
   .nav {
     margin-top: 10px;
     padding: 10px;
@@ -31,7 +45,7 @@ header {
   }
   
   .nav a {
-    color: rgb(205, 205, 40);
+    color: rgb(228, 104, 241);
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
@@ -39,7 +53,7 @@ header {
   }
   
   .nav a:hover {
-    color: rgb(229, 187, 187);
+    color: rgba(175, 241, 95, 0.463);
   }
   
   .nav a span {
@@ -49,7 +63,7 @@ header {
   
   .nav a:hover span {
     background-color: #333;
-    color: white;
+    color: rgb(236, 233, 70);
   }
   link {
     display: inline-block;

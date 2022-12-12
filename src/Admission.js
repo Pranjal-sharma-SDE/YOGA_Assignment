@@ -56,9 +56,10 @@ const AdmissionForm = (props) => {
   };
 
   return (
-    
+    <div>
+      <p>Application Form</p>
     <form class='form' onSubmit={handleSubmit}>
-      Application Form
+      
       <label class='label' htmlFor="name">Name:</label>
       <input
         type="text"
@@ -102,6 +103,7 @@ const AdmissionForm = (props) => {
           <a href='./'>Home</a>
      <Profile/>
         </form>
+        </div>
   )
 }
 const mapStateToProps = (state) => ({

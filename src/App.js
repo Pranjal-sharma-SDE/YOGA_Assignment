@@ -6,7 +6,7 @@ import Profile from './Profile';
 import "./Firebase/Configure"
 import Home from './Home';
 import Signup from './Signup';
-
+import Footer from './Footer';
 import Header from './Header';
 
 
@@ -81,9 +81,9 @@ class App extends React.Component {
     */}
     <Router>
         <Routes>
-        <Route path="/" element={<><Header/><Home/></>}/>
-      <Route path="user" element={<><Header/><AdmissionForm/></>}/>
-      <Route path="profile" element={<Profile/>}/>
+        <Route path="/" element={<><Header/><Home/><Footer/></>}/>
+      <Route path="user" element={<><Header/><AdmissionForm/><Footer/></>}/>
+      <Route path="profile" element={<><Header/><Profile/><Footer/></>}/>
       <Route path='signup' element={<Signup/>}/>
       
 
