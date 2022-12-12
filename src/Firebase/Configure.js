@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_API_KEY,
+    apiKey: "AIzaSyA5GAeVwlHJNexiqHqlq6SAFPkzZAx5ahE",
     authDomain: "yoga-classes-62c00.firebaseapp.com",
     projectId: "yoga-classes-62c00",
     storageBucket: "yoga-classes-62c00.appspot.com",
@@ -11,6 +11,7 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig);
   console.log("APi kry:",process.env.REACT_APP_API_KEY);
 
-
+ 
   console.log(app.options)
+  export default app;
 

@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { saveUser, completePayment } from './actions';
+import {  createUserWithEmailAndPassword } from "firebase/auth";
+import { auth,signup } from './Firebase/auth';
 import Profile from './Profile';
+import './Admission.css';
+
 //import CompletePayment from './CompletePayment';
 
 
@@ -10,6 +14,7 @@ const AdmissionForm = (props) => {
   const [email, setEmail] = useState('');
   const [age, setAge] = useState('');
   const [batch, setBatch] = useState('');
+  const [pass,setpass]=useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,9 +40,15 @@ const AdmissionForm = (props) => {
     if (paymentResponse) {
       // Save user information to database
       props.saveUser(name, email, age, batch);
+      
+      createUserWithEmailAndPassword(auth,email,pass).then(
+        (res)=> {
+          console.log(res);
 
+        }
+      ).catch((error)=> {console.error();})
       // Show success message
-      alert('Thank you {props.name} for enrolling in Yoga Classes! Your payment has been processed successfully.');
+      alert('Thank you for enrolling in Yoga Classes! Your payment has been processed successfully.');
     } else {
       // Show error message
       alert('There was a problem processing your payment. Please try again.');
@@ -46,8 +57,9 @@ const AdmissionForm = (props) => {
 
   return (
     
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name:</label>
+    <form class='form' onSubmit={handleSubmit}>
+      Application Form
+      <label class='label' htmlFor="name">Name:</label>
       <input
         type="text"
         id="name"
@@ -55,7 +67,7 @@ const AdmissionForm = (props) => {
         onChange={(event) => setName(event.target.value)}
       />
 
-      <label htmlFor="email">Email:</label>
+      <label class='label' htmlFor="email">Email:</label>
       <input
         type="email"
         id="email"
@@ -63,14 +75,14 @@ const AdmissionForm = (props) => {
         onChange={(event) => setEmail(event.target.value)}
       />
 
-      <label htmlFor="age">Age:</label>
+      <label class='label' htmlFor="age">Age:</label>
       <input
         type="number"
         id="age"
         value={age}
         onChange={(event) => setAge(event.target.value)}
         />
-       <label>Batch</label>
+       <label class='label'>Batch</label>
           <select name="batch" value={batch} onChange={(event)=>setBatch(event.target.value)}>
             <option value="">Select</option>
             <option value="6-7AM">6-7AM</option>
@@ -78,7 +90,15 @@ const AdmissionForm = (props) => {
             <option value="8-9AM">8-9AM</option>
             <option value="5-6PM">5-6PM</option>
           </select>
-          <button type="submit">Submit</button>
+          <label class='label' htmlFor='pass'>Password:</label>
+          <input 
+          type="password"
+          id="pass"
+          value={pass}
+          onChange={(event)=> setpass(event.target.value)}/>
+
+          <button class='button' type="submit">Proceed To Pay</button>
+          <p></p>
           <a href='./'>Home</a>
      <Profile/>
         </form>

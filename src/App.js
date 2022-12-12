@@ -3,6 +3,13 @@ import './App.css';
 import AdmissionForm from './Admission';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import Profile from './Profile';
+import "./Firebase/Configure"
+import Home from './Home';
+import Signup from './Signup';
+
+import Header from './Header';
+
+
 
 
 class App extends React.Component {
@@ -46,9 +53,11 @@ class App extends React.Component {
    // const { name, age, batch, error, success } = this.state;
     return (
       <div className="App">
+       {/* <Header/>
         <h1>Yoga Classes</h1>
-        <h2><center><a href="./user"> Admission</a></center></h2>
-        This is app class
+        <h2><center><a href="./user" > Admission</a></center></h2>
+        
+       <Home/>*/}
      {/*}
         
         <form onSubmit={this.handleSubmit}>
@@ -72,14 +81,16 @@ class App extends React.Component {
     */}
     <Router>
         <Routes>
-      
-      <Route path="user" element={<AdmissionForm/>}/>
+        <Route path="/" element={<><Header/><Home/></>}/>
+      <Route path="user" element={<><Header/><AdmissionForm/></>}/>
       <Route path="profile" element={<Profile/>}/>
+      <Route path='signup' element={<Signup/>}/>
       
 
       </Routes>
     
   </Router>
+  
 
       </div>
     );
