@@ -1,6 +1,8 @@
 #                                                Building the web app for the Yoga Classes
 
 Link for the app--> https://yoga-classes-62c00.web.app/
+
+
 To build an admission form for Yoga Classes in React, I would start by creating a new React project using the create-react-app command-line interface. Then, I would create a new component for the admission form, which would contain a form with fields for the user's name, email, age, and selected batch.
 
 Next, I would add basic validation to the form to make sure that the user is within the age limit of 18-65, and that all required fields are filled out. I would also add logic to calculate the monthly fee of 500/- Rs INR, and to call the CompletePayment() function to process the payment.
